@@ -1,0 +1,27 @@
+.Selected {
+  background-color: lightblue;
+}
+
+.itemStyle
+{
+ 
+  border-spacing: 5px;
+  margin:10px;
+  width: 90%;text-align: left;
+}
+
+table.Product td {
+border: none;
+}
+@media screen and (max-width: 500px) {
+  .itemStyle {
+     width: 95%;
+     
+      /* cellspacing:poor IE support for  this */
+    }
+    .itemStyle1 {
+      width: 0%;
+      
+       /* cellspacing:poor IE support for  this */
+     }
+ }

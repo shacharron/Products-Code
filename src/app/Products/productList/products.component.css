@@ -1,0 +1,20 @@
+
+/* .flex-container {
+  display: flex;
+  width: 80%;
+  
+} */
+
+
+ @media screen and (max-width: 800px) {
+  .itemStyle {
+     width: 95%;
+   
+      /* cellspacing:poor IE support for  this */
+    }
+    .itemStyle1 {
+      width: 0%;
+ 
+       /* cellspacing:poor IE support for  this */
+     }
+ }

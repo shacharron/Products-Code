@@ -1,0 +1,33 @@
+<div *ngIf="Product != null">
+  <fieldset>
+    <legend>{{Product.name}} Details</legend>
+    <form [formGroup]="form">
+      <div>
+        <div class="padding">My great picture:</div>
+        <div class="padding"><img width="50%" height="50%" src="{{Product?.thumbnailUrl}}"></div>
+      </div>
+        <div>
+        <div class="padding">Title:</div>
+        <div class="padding"><input id="name" formControlName="name" type="text" maxlength="30"></div>
+        <div class="alert padding" *ngIf="!name.pristine && name?.errors?.CustomRequired">Name is required!</div>
+      </div>
+      <div>
+        <div class="padding">Description:</div>
+        <div class="padding"><textarea id="description" rows="8" cols="32" formControlName="description"></textarea></div>
+        <div class="alert padding" *ngIf="!description.pristine && description?.errors?.CustomRequired">Description is required!</div>
+      </div>
+      <div>
+        <div class="padding">Price:</div>
+        <div  class="padding">
+           <input id="price" formControlName="price" type="text" maxlength="30">
+        </div>
+        <div class="alert padding" *ngIf="!price.pristine && price?.errors?.CustomRequired">price is required!</div>
+         <div class="alert padding" *ngIf="!price.pristine && price?.errors?.JustNumbers">Please fill only numbers !</div>
+     </div>
+      <div  class="padding">
+           <button class="button" type="submit" [disabled]="!form.valid" (click)="onSubmit()">Save Product</button></div>
+        <div class="success padding" *ngIf="Showsuccess">Thank you for updating product {{Product?.name}}</div>
+
+    </form>
+  </fieldset>
+</div>

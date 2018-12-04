@@ -1,0 +1,6 @@
+<div style="width: 100%;">
+  <div *ngIf="isFinishLoad">No products found</div>
+  <div *ngFor="let Product of Products; let i = index" style="width: 100%;">
+    <app-productitem [Product]="Product" [idClick]="idClick" (click)="EditProduct(Product.id)"></app-productitem>
+  </div>
+</div>

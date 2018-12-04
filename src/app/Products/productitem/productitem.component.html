@@ -1,0 +1,14 @@
+<table border="1"  class="Product itemStyle" [class.Selected]="idClick===Product.id">
+  <tr>
+    <td rowspan="3" style="width: 10%;height:40%"><img  height="40%" src="{{Product.thumbnailUrl}}"></td>
+    <td colspan="2" style="width: 90%;word-break: break-all;">
+      <b>Name:</b> {{Product.name}}
+    </td>
+  </tr>
+  <tr>
+    <td><b>Price</b> :{{Product.price}}</td>
+  </tr>
+  <tr>
+    <td>{{Product.description}}</td>
+  </tr>
+</table>

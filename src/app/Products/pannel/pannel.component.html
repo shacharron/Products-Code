@@ -1,0 +1,12 @@
+<div class="flex-container">
+    <div>
+        <button class="button" tabindex="1">Add</button>
+    </div>
+    <div><input #searchBox size="9" (keyup)="Search(searchBox.value)" placeholder="Search by name" tabindex="2"/></div>
+    <div>Sort by
+      <select #SortFilter (change)="Sort(SortFilter.value)" tabindex="3">
+        <option value="name">Name</option>
+        <option value="price">Price</option>
+      </select>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+.flex-container {
+  display: flex;
+  
+}
+.flex-container > div {
+  padding: 20px;
+}
+@media screen and (max-width:400px) {
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .flex-container > div {
+    line-height: 10px;
+    width: 100%;
+    
+    text-align: left;
+  }
+ }
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    width: 50px;
+    padding: 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+}

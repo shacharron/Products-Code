@@ -1,0 +1,14 @@
+ <div>
+    <div>
+        <app-pannel (SearchClick)="GetFilterData($event)" (SortClick)="GetSortData($event)"></app-pannel>
+    </div>
+    <div>
+        <div class="left">
+            <app-products [Products]="Products" (Edit)="EditProduct($event)"></app-products>
+        </div>
+        <div class="right">
+            <app-product [Product]="Product"></app-product>
+        </div>
+
+    </div>
+ 
