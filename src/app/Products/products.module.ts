@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { ProductValidators } from './../Validators/Product.Validators';
 import { ProductitemComponent } from './productitem/productitem.component';
-import { NgModule, InjectionToken } from '@angular/core';
+import { NgModule, InjectionToken, ModuleWithProviders, Self } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './productList/products.component';
 
@@ -15,9 +16,8 @@ import { WrapperServiceService, CarService2, BROWSER_STORAGE } from './wrapper-s
 import { RETRIES } from './export';
 import { HttpInterceptorService } from '../HttpInterceptorService';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-export class  interFace 
-{
-  public getDoIt () : void {};
+export class interFace {
+  public getDoIt(): void { };
 }
 
 @NgModule({
@@ -28,10 +28,10 @@ export class  interFace
   exports: [
     ProductmediatorComponent
   ],
-  providers :[
-   {provide : HTTP_INTERCEPTORS , useClass : HttpInterceptorService, multi: true},
-  // WrapperServiceService,
-    {provide : RETRIES , useValue: 5}
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
+    // WrapperServiceService,
+    { provide: RETRIES, useValue: 5 }
   ],
 
   declarations: [
@@ -42,6 +42,18 @@ export class  interFace
     ProductitemComponent,
   ]
 })
-export class ProductsModule { }
+export class ProductsModule {
+  static withRetries(defaultNumber: number): ModuleWithProviders {
+    return {
+      ngModule: ProductsModule,
+      providers: [
+        { provide: RETRIES, useValue: defaultNumber }
+      ]
+    }
+  }
+  
+  constructor(@Self() client : HttpClient) {
 
- 
+  }
+}
+

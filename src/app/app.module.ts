@@ -22,7 +22,7 @@ import { RETRIES } from './Products/export';
   
   ],
   imports: [
-    ProductsModule,
+    ProductsModule.withRetries(12),
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -31,7 +31,7 @@ import { RETRIES } from './Products/export';
     
   ],
   providers: [
-    {provide : RETRIES , useValue: 2}
+   
   ],
   bootstrap: [AppComponent]
 })
