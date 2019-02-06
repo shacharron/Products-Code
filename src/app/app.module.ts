@@ -11,6 +11,7 @@ import { PannelComponent } from './Products/pannel/pannel.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProductitemComponent } from './Products/productitem/productitem.component';
 import { ProductsModule } from './Products/products.module';
+import { RETRIES } from './Products/export';
  
 
 @NgModule({
@@ -29,7 +30,9 @@ import { ProductsModule } from './Products/products.module';
    
     
   ],
-  providers: [],
+  providers: [
+    {provide : RETRIES , useValue: 2}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

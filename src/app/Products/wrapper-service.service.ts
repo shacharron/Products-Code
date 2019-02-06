@@ -17,6 +17,8 @@ protected name : number;
   constructor(@Inject(RETRIES) public ret: number) {
    alert(ret);
 
+   
+
   }
 
 }

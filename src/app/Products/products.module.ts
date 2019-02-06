@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PannelComponent } from './pannel/pannel.component';
 import { WrapperServiceService, CarService2, BROWSER_STORAGE } from './wrapper-service.service';
 import { RETRIES } from './export';
+import { HttpInterceptorService } from '../HttpInterceptorService';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 export class  interFace 
 {
   public getDoIt () : void {};
@@ -27,7 +29,7 @@ export class  interFace
     ProductmediatorComponent
   ],
   providers :[
-   //{provide : WrapperServiceService , useClass : CarService2},
+   {provide : HTTP_INTERCEPTORS , useClass : HttpInterceptorService, multi: true},
   // WrapperServiceService,
     {provide : RETRIES , useValue: 5}
   ],

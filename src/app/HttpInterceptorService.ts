@@ -13,7 +13,7 @@ export class HttpInterceptorService implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler):
         Observable<HttpEvent<any>> {
         //if (req.url.indexOf('/upload/file') === -1) {
-        console.log(req.url);
+        alert(req.url);
         return next.handle(req); // do nothing
         ///}
         //const delay = 300;
