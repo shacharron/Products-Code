@@ -1,11 +1,19 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Inject, Self } from '@angular/core';
 import { product } from 'src/app/Models/Product';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ProductValidators } from 'src/app/Validators/Product.Validators';
+import { WrapperServiceService, BROWSER_STORAGE, CarService2 } from '../wrapper-service.service';
+import { RETRIES } from '../export';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  providers :[
+   // {provide : WrapperServiceService , useClass : CarService2},
+   // WrapperServiceService,
+   //  {provide : RETRIES , useValue: 5}
+   ],
+ 
 })
 export class ProductComponent implements OnInit,OnChanges {
 
@@ -13,9 +21,10 @@ export class ProductComponent implements OnInit,OnChanges {
   @Input() Product: product;
   form: FormGroup;
    Showsuccess : boolean =false;
-  constructor(public fb: FormBuilder) { }
+  constructor(public fb: FormBuilder,   private wrapperServiceService:WrapperServiceService) { }
  
   ngOnInit() {
+     
   }
 
   ngOnChanges() {
